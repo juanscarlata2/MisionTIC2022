@@ -1,4 +1,4 @@
-![N|Solid](http://aprende.colombiaaprende.edu.co/sites/default/files/naspublic/orig_image/mision_tic_2022.png)
+![N|Solid](https://misiontic2022.mintic.gov.co/mtv2/assets/assets/images/logo-mision.png)
 # Mision TIC 2022
 Esta iniciativa, aparece como respuesta frente a los retos de la Cuarta Revolución Industrial, y tiene como objetivo la formación de 100.000 hombres y mujeres elegidos y formados para ser parte de la aventura que propulsará el mundo hacia adelante.
 
