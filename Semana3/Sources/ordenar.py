@@ -4,6 +4,7 @@ def ordenar(lista):
     while True:
         if len(lista)==0:
             break
+        
         menor, posicion =buscar_menor(lista)
         elementos_ordenados.append(menor)
         lista.pop(posicion)
