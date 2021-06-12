@@ -71,6 +71,6 @@ class matriz:
     def traspuesta(self):
         c = matriz(self.n, self.m)
         for i in range(1, self.m + 1):
-            for j in range(1, b.n + 1):
+            for j in range(1, self.n + 1):
                 c.mat[j][i] = self.mat[i][j]
         return c
