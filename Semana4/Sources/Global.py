@@ -9,11 +9,10 @@ class persona(object):
        
     
     def guardar_datos(self):
-        global id
-        datos
-        
+        global id # Declaramos a id como una variable global
+
         datos[id]={"nombre":self.nombre, "edad":self.edad}
-        id+=1
+        id+=1 #id=id+1
         
         return datos
 

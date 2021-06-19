@@ -1,3 +1,5 @@
+from Vector.vector import vector
+
 class matriz:
 
     def __init__(self, m, n):
@@ -69,8 +71,23 @@ class matriz:
         return v
 
     def traspuesta(self):
-        c = matriz(self.n, self.m)
+        c = matriz(self.n, self.m) #crea un objeto
         for i in range(1, self.m + 1):
             for j in range(1, self.n + 1):
                 c.mat[j][i] = self.mat[i][j]
         return c
+
+    def __mul__(self, b):
+        c = matriz(self.m, b.n)
+        if self.n != b.m:
+            print("Matrices no se pueden multiplicar. ", end = "")
+            print("el número de columnas de self es diferente del número de columnas de b")
+            return c
+            
+        for i in range(1, self.m + 1):
+            for j in range(1, b.n + 1):
+                c.mat[i][j] = 0
+                for k in range(1, self.n + 1):
+                    c.mat[i][j] = c.mat[i][j] + self.mat[i][k] * b.mat[k][j]
+            return  c
+
