@@ -8,7 +8,7 @@ class palabras(object):
 
     def get_palabra(self):
         n_palabra=random.randint(0, self.cantidad_palabras - 1)
-        n_palabra=self.cantidad_palabras - 1
+        
         fichero = open('data', 'r')
         i=0
         while (True):
