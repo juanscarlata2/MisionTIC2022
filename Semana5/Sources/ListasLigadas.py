@@ -1,6 +1,5 @@
 from Nodo import nodoSimple
 
-
 class LSL:
     def __init__(self): #Constructor
         self.primero = None
@@ -80,8 +79,8 @@ class LSL:
             return
         if y == None:
             if x != self.primero:
-                    print("Falta el anterior del dato a borrar")
-                    return
+                print("Falta el anterior del dato a borrar")
+                return
         else:
             y = y.retornarDato()
         self.desconectar(x, y)
@@ -91,10 +90,10 @@ class LSL:
             self.primero = x.retornarLiga()
             if self.esVacia():
                 self.ultimo = None
-            else:
-                y.asignarLiga(x.retornarLiga())
-                if x == self.ultimo:
-                    self.ultimo = y
+        else:
+            y.asignarLiga(x.retornarLiga())
+            if x == self.ultimo:
+                self.ultimo = y
 
 
 
