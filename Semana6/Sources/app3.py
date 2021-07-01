@@ -1,11 +1,12 @@
 from tkinter import messagebox
 from tkinter import *
+import json
+
 #variables globales
 
 
 class app:
     def __init__(self, root):
-
         L_nombre=Label(root, text="Name")
         L_nombre.grid(row=0, column=0, padx=5)
 
@@ -43,8 +44,12 @@ class app:
 
         nombre=self.E_nombre.get()
         age=self.E_age.get()
-        datos[id]={"nombre":nombre, "edad":age}
+        datos[str(id)]={"nombre":nombre, "edad":age}
         id+=1 #id=id+1
+
+        with open('datos.json','w') as f:
+            json.dump(datos, f)
+
        
     def buscar(self):
         id=self.E_buscar.get()
@@ -52,7 +57,7 @@ class app:
             self.crear_tabla(fila=len(datos))
         else:
             try:
-                id=int(id)
+                id=id
             except:
                 messagebox.showerror("Not int", "Debe ingresar un id en entero")
             else:    
@@ -72,7 +77,7 @@ class app:
             for c in range(0,2):
                 fila=Entry(self.tabla)
                 fila.grid(row=0, column=c)
-                key=self.detectar_registro(columna=c)
+                key=self.detectar_registro(columna=str(c))
                 fila.insert(index=0, string=unico[key])
 
         else:
@@ -80,26 +85,34 @@ class app:
                 for c in range(0,2):
                     fila=Entry(self.tabla)
                     fila.grid(row=f, column=c)
-                    key=self.detectar_registro(columna=c)
-                    fila.insert(index=0, string=datos[f][key])
-
+                    key=self.detectar_registro(columna=str(c))
+                    fila.insert(index=0, string=datos[str(f)][key])
 
 
     def detectar_registro(self, columna):
-        if columna==0:
+
+        if columna=='0':
             key='nombre'
-        elif columna==1:
+        elif columna=='1':
             key='edad'
         
         return key
 
 
 
+def inicializar_datos():
+    with open('datos.json', 'r') as f:
+        datos=json.load(f)
+    return datos
 
+def inicializar_id():
+    pass
 
 #Metodo  main
 if __name__=="__main__":
-    datos={}
+
+    datos=inicializar_datos()
+    print(datos)
     id=0
 
     ventana=Tk()
