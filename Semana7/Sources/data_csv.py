@@ -20,7 +20,6 @@ class dataClients(object):
             writer=csv.DictWriter(csv_file, fieldnames=self.fieldnames)
             if isinstance(datos, dict):
                 try:
-                    writer.writeheader()
                     writer.writerow(datos)
                 except:
                     print("No tiene las keys correctas")
@@ -31,14 +30,6 @@ class dataClients(object):
                 print("No es un dict")
                 return False 
 
-
-mi_tabla=dataClients(file_name='Datos.csv') #Se crea un objeto de la clase
-
-dato={'id':'0001', 'nombre':'platano', 'cantidad':34, 'precio':2000}
-
-validar=mi_tabla.write_rwo(dato)
-
-print(validar)
 
 
 
